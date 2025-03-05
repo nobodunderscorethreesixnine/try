@@ -1,0 +1,41 @@
+query prjbtn .
+query inputField .
+query todoBtn .
+query dialogBox.
+// querying the tic and cross btn in dialog box
+query addToDobtn.
+query cancelToDobtn.
+
+userSelectedProject = None
+prjNames = []
+prjData = prjName:[ [tods],[todos]  ] ---->objects
+
+if (prjBtn) clicked:
+    visible inputField
+    focus inputField
+
+if (inputField > 1) event == enter:    
+    store input in list->prjNames
+    hide inputField ->close inputField
+    prjData[input]:{} --> instializing empty object with prj name that is input 
+    userSelectedProject = inputField.value  ?->updating value 
+else (inputFiled) != enter &&  focus is blur:
+    reset input filed 
+    hide inputFiled
+
+//now for adding todo button
+if (todoBtn) clicked && userSelectedProject:
+   run  showDialogBox()
+
+ def showDialogBox():
+    run dialogBox.show();
+
+def 
+
+    // if (toName.value && date.value &&  priority.value){
+    //     run todoDom()
+    // }
+
+def todoDom(){
+    create dom with js here..
+}

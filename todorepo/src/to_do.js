@@ -10,7 +10,6 @@ let data = {
   'this is fun project':[]
 }/* to store objects and its related todos */
 
-
 const addPrjBtn = document.querySelector('#prj-plus')
 const prjInput = document.querySelector('.prj-input')
 // queyring prj list which store the projects
@@ -53,14 +52,18 @@ function prjDomCreator(){
 
 prjList.addEventListener('click', (e)=>{
   // e.target.classList.remove('active')
+  const prjNames = document.querySelectorAll('.prj-name')
   if (projectNames.includes(e.target.textContent) && e.target.textContent in data){
     toDoListSection.textContent = ''
     userSelectedProject = e.target.textContent
     toDoDom()
     console.log('project has already maked')
+    prjNames.forEach((pName) =>{
+      pName.classList.remove('active')
+     })
+  e.target.classList.add('active')
   }
   else if (projectNames.includes(e.target.textContent)){
-    const prjNames = document.querySelectorAll('.prj-name')
     prjNames.forEach((pName) =>{
         pName.classList.remove('active')
     })
@@ -114,7 +117,7 @@ saveToDo.addEventListener('click',()=>{
     // toDoDomCreator(title.value, date.value, option.value,textArea.value)
     // toDoDomCreator(title.value, date.value, option.value,isTextArea)
     data[userSelectedProject].push([title.value,date.value,option.value,isTextArea])
-    toDoDom()
+    toDoDom() 
   }
 
   else{
@@ -125,6 +128,7 @@ saveToDo.addEventListener('click',()=>{
 // const toDoListSection = document.querySelector('to-do-list')
 
 function toDoDom(){
+  toDoListSection.textContent='';
   console.log(data[userSelectedProject])
   data[userSelectedProject].forEach(element =>{
     console.log('this is array',element)
@@ -189,6 +193,51 @@ function priorityLabelChecker(priority, tagname){
     tagname.classList.add('p-m')
   }
 }
+
+// now making dleting logic with js
+
+toDoListSection.addEventListener('click', (e)=>{
+  console.log(e.target)
+  console.log('')
+  if (e.target.classList.contains('dlt-icon')){
+    console.log(e.target)
+    console.log('i am beinclicked')
+  }
+now implement this with learning new thing like closest-> in js
+remember this and implement this only and try to learn the code of chatgpt
+to how to find and delete it . if not then u have to again implement data-
+ to store index.
+
+})
+
+// toDoListSection.addEventListener('click', (e) => {
+//   if (e.target.classList.contains('dlt-icon')) {
+//     const todoDiv = e.target.closest('.to-dos');
+//     const title = todoDiv.querySelector('label').textContent;
+//     deleteToDo(title);
+//   }
+// });
+
+// function deleteToDo(title) {
+//   const projectTodos = data[userSelectedProject];
+//   const index = projectTodos.findIndex(todo => todo[0] === title);
+
+//   if (index !== -1) {
+//     projectTodos.splice(index, 1);
+//   }
+
+//   toDoDom();
+// }
+
+
+
+
+
+
+
+// now take the index  and dlt todo
+// 1) create each element with default data-which store indx
+// and for dlt and editing it will be helpful .
 
 // now today make the logic to check before adding todo if 
 // user have click the project or not , if user haven't click 
