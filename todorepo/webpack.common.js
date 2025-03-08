@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/to_do.js',
+    // entry: './src/complete_todo.js',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
