@@ -13,6 +13,9 @@ let data = {
 function updateSessionStorage() {
   localStorage.setItem('data', JSON.stringify(data))
 }
+// now implement in class and also note that 
+// u have to keep by default project so while implementing in 
+// class make note that of
 
 
 
@@ -73,7 +76,7 @@ prjInput.addEventListener('keyup', (e) => {
     prjDomCreator(prjInput.value)
     // trying to add prject in data object
     data[prjInput.value] = [];
-    sessionStorage.setItem('projectNames', JSON.stringify(projectNames))
+    // sessionStorage.setItem('projectNames', JSON.stringify(projectNames))
     updateSessionStorage()
   }
 
